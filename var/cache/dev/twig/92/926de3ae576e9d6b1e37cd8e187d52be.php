@@ -843,6 +843,6 @@ class __TwigTemplate_b501fc93362090375ed614f85f3abe61 extends Template
     </table>
     {% endfor %}
 {% endmacro %}
-", "@WebProfiler/Collector/messenger.html.twig", "E:\\development\\symfony\\Miguel\\tmplate-project\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\messenger.html.twig");
+", "@WebProfiler/Collector/messenger.html.twig", "E:\\development\\symfony\\Miguel\\miguel-symfony-website\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\messenger.html.twig");
     }
 }

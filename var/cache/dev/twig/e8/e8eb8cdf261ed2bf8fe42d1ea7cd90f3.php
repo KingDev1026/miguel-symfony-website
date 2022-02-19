@@ -227,6 +227,6 @@ class __TwigTemplate_2ad1c0f5d806a0dfce28e1684ff627fb extends Template
         </div>
     </form>
 </div>
-", "@WebProfiler/Profiler/search.html.twig", "E:\\development\\symfony\\Miguel\\tmplate-project\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Profiler\\search.html.twig");
+", "@WebProfiler/Profiler/search.html.twig", "E:\\development\\symfony\\Miguel\\miguel-symfony-website\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Profiler\\search.html.twig");
     }
 }

@@ -1671,6 +1671,6 @@ class __TwigTemplate_bba2122bf8a346b6eae2601b00528efd extends Template
         </tbody>
     </table>
 {% endmacro %}
-", "@Doctrine/Collector/db.html.twig", "E:\\development\\symfony\\Miguel\\tmplate-project\\vendor\\doctrine\\doctrine-bundle\\Resources\\views\\Collector\\db.html.twig");
+", "@Doctrine/Collector/db.html.twig", "E:\\development\\symfony\\Miguel\\miguel-symfony-website\\vendor\\doctrine\\doctrine-bundle\\Resources\\views\\Collector\\db.html.twig");
     }
 }
