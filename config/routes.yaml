@@ -5,6 +5,9 @@ controllers:
 kernel:
     resource: ../src/Kernel.php
     type: annotation
+customer_show:
+    path: /customer/show/{id}
+    controller: App\Controller\CustomerController::show
 
 
 
