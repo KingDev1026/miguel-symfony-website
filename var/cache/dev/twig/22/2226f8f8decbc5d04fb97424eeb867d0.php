@@ -105,7 +105,10 @@ class __TwigTemplate_3f35047f79ae027f8ed0cf92fc38e912 extends Template
 
       <nav id=\"navbar\" class=\"navbar order-last order-lg-0\">
         <ul>
-          <li><a class=\"nav-link scrollto active\" href=\"#hero\">Home</a></li>
+          <li><a class=\"nav-link scrollto active\" href=\"";
+        // line 31
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("home");
+        echo "\">Home</a></li>
           <li><a class=\"nav-link scrollto\" href=\"#about\">Bells</a></li>
           <li><a class=\"nav-link scrollto\" href=\"#services\">Records</a></li>
           <li><a class=\"nav-link scrollto \" href=\"#portfolio\">Teachers</a></li>
@@ -257,7 +260,7 @@ class __TwigTemplate_3f35047f79ae027f8ed0cf92fc38e912 extends Template
 
     public function getDebugInfo()
     {
-        return array (  231 => 45,  212 => 5,  126 => 46,  124 => 45,  94 => 18,  88 => 15,  84 => 14,  80 => 13,  76 => 12,  72 => 11,  68 => 10,  64 => 9,  59 => 7,  55 => 6,  51 => 5,  45 => 1,);
+        return array (  234 => 45,  215 => 5,  129 => 46,  127 => 45,  110 => 31,  94 => 18,  88 => 15,  84 => 14,  80 => 13,  76 => 12,  72 => 11,  68 => 10,  64 => 9,  59 => 7,  55 => 6,  51 => 5,  45 => 1,);
     }
 
     public function getSourceContext()
@@ -292,7 +295,7 @@ class __TwigTemplate_3f35047f79ae027f8ed0cf92fc38e912 extends Template
 
       <nav id=\"navbar\" class=\"navbar order-last order-lg-0\">
         <ul>
-          <li><a class=\"nav-link scrollto active\" href=\"#hero\">Home</a></li>
+          <li><a class=\"nav-link scrollto active\" href=\"{{path('home')}}\">Home</a></li>
           <li><a class=\"nav-link scrollto\" href=\"#about\">Bells</a></li>
           <li><a class=\"nav-link scrollto\" href=\"#services\">Records</a></li>
           <li><a class=\"nav-link scrollto \" href=\"#portfolio\">Teachers</a></li>

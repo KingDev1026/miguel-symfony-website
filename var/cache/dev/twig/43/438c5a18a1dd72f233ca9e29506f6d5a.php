@@ -90,12 +90,21 @@ class __TwigTemplate_9f24bff4f448e0d2c7c5799198a748ad extends Template
         // line 7
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/home/vendor/bootstrap/css/bootstrap.min.css"), "html", null, true);
         echo "\" rel=\"stylesheet\">
+
 <form class=\"container\"  method=\"post\" action=\"";
-        // line 8
+        // line 9
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("customer_create");
         echo "\">
   <h1 class=\"mt-3\">Create Data Page.</h1>
-  <div class=\"form-group mt-3\">
+  ";
+        // line 11
+        if (((isset($context["controller_name"]) || array_key_exists("controller_name", $context) ? $context["controller_name"] : (function () { throw new RuntimeError('Variable "controller_name" does not exist.', 11, $this->source); })()) == "CustommerController1")) {
+            // line 12
+            echo "    <p style=\"color: red;\">This email has already been registered. please create it again.</p>
+  ";
+        }
+        // line 14
+        echo "  <div class=\"form-group mt-3\">
     <label for=\"firstName\">First Name</label>
     <input type=\"text\" class=\"form-control\" id=\"firstName\" placeholder=\"Enter First Name\" name=\"firstName\">
   </div>
@@ -135,7 +144,7 @@ class __TwigTemplate_9f24bff4f448e0d2c7c5799198a748ad extends Template
 
     public function getDebugInfo()
     {
-        return array (  95 => 8,  91 => 7,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  107 => 14,  103 => 12,  101 => 11,  96 => 9,  91 => 7,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -147,8 +156,12 @@ class __TwigTemplate_9f24bff4f448e0d2c7c5799198a748ad extends Template
 {% block body %}
 
 <link href=\"{{asset('assets/home/vendor/bootstrap/css/bootstrap.min.css')}}\" rel=\"stylesheet\">
+
 <form class=\"container\"  method=\"post\" action=\"{{path('customer_create')}}\">
   <h1 class=\"mt-3\">Create Data Page.</h1>
+  {% if controller_name ==\"CustommerController1\" %}
+    <p style=\"color: red;\">This email has already been registered. please create it again.</p>
+  {% endif %}
   <div class=\"form-group mt-3\">
     <label for=\"firstName\">First Name</label>
     <input type=\"text\" class=\"form-control\" id=\"firstName\" placeholder=\"Enter First Name\" name=\"firstName\">

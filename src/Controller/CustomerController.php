@@ -42,6 +42,11 @@ class CustomerController extends AbstractController
     }
     public function createProduct(ManagerRegistry $doctrine, Request $requests): Response
     {
+        $user = $doctrine->getRepository(Customer::class)->findOneBy(array('email' => $requests->get('email')));
+        if($user){
+            return $this->render('customer/create.html.twig', [
+                'controller_name' => 'CustommerController1']);
+        }
         $entityManager = $doctrine->getManager();
         $customer = new Customer();
         $customer->setFirstName($requests->get('firstName'));
@@ -50,15 +55,21 @@ class CustomerController extends AbstractController
         $customer->setPhoneNumber($requests->get('phoneNumber'));
         $entityManager->persist($customer);
         $entityManager->flush();
-        return $this->render('customer/create.html.twig',array(
-            'id'=>$customer->getId()
-        ));
+        return $this->redirectToRoute('customer');
     }
 
     public function update_customer(ManagerRegistry $doctrine, Request $requests, int $id): Response
     {
-        $entityManager = $doctrine->getManager();
+        $user = $doctrine->getRepository(Customer::class)->findOneBy(array('email' => $requests->get('email')));
         $customer = $doctrine->getRepository(Customer::class)->find($id);
+        if($user){
+            if($user->getId() !== $id)
+                return $this->render('customer/edit.html.twig', [
+                        'controller_name' => 'CustomerController1',
+                        'customer' => $customer,
+                    ]);
+        }
+        
         $customer->setFirstName($requests->get('firstName'));
         $customer->setLastName($requests->get('lastName'));
         $customer->setEmail($requests->get('email'));
