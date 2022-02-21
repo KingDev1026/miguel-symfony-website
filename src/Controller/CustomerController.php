@@ -25,12 +25,34 @@ class CustomerController extends AbstractController
         $customer = $doctrine->getRepository(Customer::class)->find($id);
         if (!$customer) {
             throw $this->createNotFoundException(
-                'No product found for id '.$id
+                'No composer found for id '.$id
             );
         }
         return $this->render('customer/edit.html.twig', [
             'controller_name' => 'CustomerController',
             'customer' => $customer,
+        ]);
+    }
+    public function update(ManagerRegistry $doctrine, int $id): Response
+    {
+        $entityManager = $doctrine->getManager();
+        $customer = $entityManager->getRepository(Customer::class)->find($id);
+
+        if (!$customer) {
+            throw $this->createNotFoundException(
+                'No customer found for id '.$id
+            );
+        }
+        $customer->setFirstName($entityManager->getFirstName());
+        // $customer->setLastName("1231");
+        // $customer->setLastName($entityManager->lastName);
+        // $customer->setEmail($entityManager->email);
+        // $customer->setPhoneNumber($entityManager->phoneNumber);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('customer_show', [
+            'id' => $customer->getId(), 
+            'customer' => $entityManager
         ]);
     }
 }

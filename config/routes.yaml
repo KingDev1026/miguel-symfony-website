@@ -8,6 +8,9 @@ kernel:
 customer_show:
     path: /customer/show/{id}
     controller: App\Controller\CustomerController::show
+customer_update:
+    path: /customer/update/{id}
+    controller: App\Controller\CustomerController::update
 
 
 

@@ -85,8 +85,47 @@ class __TwigTemplate_a6d16285b36c7ab3bd3b719b6d26b306 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["customer"]) || array_key_exists("customer", $context) ? $context["customer"] : (function () { throw new RuntimeError('Variable "customer" does not exist.', 6, $this->source); })()), "firstName", [], "any", false, false, false, 6), "html", null, true);
         echo "
+<link href=\"";
+        // line 7
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/home/vendor/bootstrap/css/bootstrap.min.css"), "html", null, true);
+        echo "\" rel=\"stylesheet\">
+<form class=\"container\" action=\"";
+        // line 8
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("customer_update", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["customer"]) || array_key_exists("customer", $context) ? $context["customer"] : (function () { throw new RuntimeError('Variable "customer" does not exist.', 8, $this->source); })()), "id", [], "any", false, false, false, 8)]), "html", null, true);
+        echo "\" method=\"post\">
+  <h1 class=\"mt-3\">Edit Data Page.</h1>
+  <div class=\"form-group mt-3\">
+    <label for=\"firstName\">First Name</label>
+    <input type=\"firstName\" class=\"form-control\" id=\"firstName\" placeholder=\"Enter First Name\" value=\"";
+        // line 12
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["customer"]) || array_key_exists("customer", $context) ? $context["customer"] : (function () { throw new RuntimeError('Variable "customer" does not exist.', 12, $this->source); })()), "firstName", [], "any", false, false, false, 12), "html", null, true);
+        echo "\">
+  </div>
+  <div class=\"form-group mt-3\">
+    <label for=\"lastName\">Last Name</label>
+    <input type=\"lastName\" class=\"form-control\" id=\"lastName\" placeholder=\"Enter Last Name\" value=\"";
+        // line 16
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["customer"]) || array_key_exists("customer", $context) ? $context["customer"] : (function () { throw new RuntimeError('Variable "customer" does not exist.', 16, $this->source); })()), "lastName", [], "any", false, false, false, 16), "html", null, true);
+        echo "\">
+  </div>
+  <div class=\"form-group mt-3\">
+    <label for=\"email\">Email address</label>
+    <input type=\"email\" class=\"form-control\" id=\"email\" aria-describedby=\"emailHelp\" placeholder=\"Enter email\" value=\"";
+        // line 20
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["customer"]) || array_key_exists("customer", $context) ? $context["customer"] : (function () { throw new RuntimeError('Variable "customer" does not exist.', 20, $this->source); })()), "email", [], "any", false, false, false, 20), "html", null, true);
+        echo "\">
+  </div>
+  <div class=\"form-group\">
+    <label for=\"phoneNumber\">PhoneNumber</label>
+    <input type=\"phoneNumber\" class=\"form-control\" id=\"phoneNumber\" placeholder=\"phoneNumber\" value=\"";
+        // line 24
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["customer"]) || array_key_exists("customer", $context) ? $context["customer"] : (function () { throw new RuntimeError('Variable "customer" does not exist.', 24, $this->source); })()), "phoneNumber", [], "any", false, false, false, 24), "html", null, true);
+        echo "\">
+  </div>
+  
+  <button type=\"submit\" class=\"btn btn-primary my-3\">save</button>
+</form>
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -108,7 +147,7 @@ class __TwigTemplate_a6d16285b36c7ab3bd3b719b6d26b306 extends Template
 
     public function getDebugInfo()
     {
-        return array (  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  123 => 24,  116 => 20,  109 => 16,  102 => 12,  95 => 8,  91 => 7,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -118,7 +157,29 @@ class __TwigTemplate_a6d16285b36c7ab3bd3b719b6d26b306 extends Template
 {% block title %}Hello CustomerController!{% endblock %}
 
 {% block body %}
-{{customer.firstName}}
+
+<link href=\"{{asset('assets/home/vendor/bootstrap/css/bootstrap.min.css')}}\" rel=\"stylesheet\">
+<form class=\"container\" action=\"{{path('customer_update', {'id': customer.id })}}\" method=\"post\">
+  <h1 class=\"mt-3\">Edit Data Page.</h1>
+  <div class=\"form-group mt-3\">
+    <label for=\"firstName\">First Name</label>
+    <input type=\"firstName\" class=\"form-control\" id=\"firstName\" placeholder=\"Enter First Name\" value=\"{{customer.firstName}}\">
+  </div>
+  <div class=\"form-group mt-3\">
+    <label for=\"lastName\">Last Name</label>
+    <input type=\"lastName\" class=\"form-control\" id=\"lastName\" placeholder=\"Enter Last Name\" value=\"{{customer.lastName}}\">
+  </div>
+  <div class=\"form-group mt-3\">
+    <label for=\"email\">Email address</label>
+    <input type=\"email\" class=\"form-control\" id=\"email\" aria-describedby=\"emailHelp\" placeholder=\"Enter email\" value=\"{{customer.email}}\">
+  </div>
+  <div class=\"form-group\">
+    <label for=\"phoneNumber\">PhoneNumber</label>
+    <input type=\"phoneNumber\" class=\"form-control\" id=\"phoneNumber\" placeholder=\"phoneNumber\" value=\"{{customer.phoneNumber}}\">
+  </div>
+  
+  <button type=\"submit\" class=\"btn btn-primary my-3\">save</button>
+</form>
 {% endblock %}", "customer/edit.html.twig", "E:\\development\\symfony\\Miguel\\miguel-symfony-website\\templates\\customer\\edit.html.twig");
     }
 }
