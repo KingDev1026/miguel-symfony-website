@@ -150,11 +150,14 @@ class __TwigTemplate_b34dca3e4fac3acd4202d28f117da328 extends Template
             // line 40
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["customer"], "phoneNumber", [], "any", false, false, false, 40), "html", null, true);
             echo "</td>
-                                    <td><button type=\"button\" class=\"btn btn-success\"><a href=\"";
+                                    <td><a href=\"";
             // line 41
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("customer_show", ["id" => twig_get_attribute($this->env, $this->source, $context["customer"], "id", [], "any", false, false, false, 41)]), "html", null, true);
-            echo "\">Edit</a></button></td>
-                                    <td><button type=\"button\" class=\"btn btn-danger\"><a>Delete</a></button></td>
+            echo "\"><button type=\"button\" class=\"btn btn-success\">Edit</button></a></td>
+                                    <td><a href=\"";
+            // line 42
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("customer_delete", ["id" => twig_get_attribute($this->env, $this->source, $context["customer"], "id", [], "any", false, false, false, 42)]), "html", null, true);
+            echo "\"><button type=\"button\" class=\"btn btn-danger\">Delete</button></a></td>
                                 </tr>
                             ";
         }
@@ -190,7 +193,7 @@ class __TwigTemplate_b34dca3e4fac3acd4202d28f117da328 extends Template
 
     public function getDebugInfo()
     {
-        return array (  165 => 45,  155 => 41,  151 => 40,  147 => 39,  143 => 38,  139 => 37,  134 => 36,  132 => 35,  129 => 34,  124 => 33,  122 => 32,  102 => 15,  94 => 10,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  168 => 45,  159 => 42,  155 => 41,  151 => 40,  147 => 39,  143 => 38,  139 => 37,  134 => 36,  132 => 35,  129 => 34,  124 => 33,  122 => 32,  102 => 15,  94 => 10,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -235,8 +238,8 @@ class __TwigTemplate_b34dca3e4fac3acd4202d28f117da328 extends Template
                                     <td>{{customer.lastName}}</td>
                                     <td>{{customer.email}}</td>
                                     <td>{{customer.phoneNumber}}</td>
-                                    <td><button type=\"button\" class=\"btn btn-success\"><a href=\"{{path('customer_show', {'id': customer.id })}}\">Edit</a></button></td>
-                                    <td><button type=\"button\" class=\"btn btn-danger\"><a>Delete</a></button></td>
+                                    <td><a href=\"{{path('customer_show', {'id': customer.id })}}\"><button type=\"button\" class=\"btn btn-success\">Edit</button></a></td>
+                                    <td><a href=\"{{path('customer_delete', {'id': customer.id })}}\"><button type=\"button\" class=\"btn btn-danger\">Delete</button></a></td>
                                 </tr>
                             {% endfor %}
                           </tbody>

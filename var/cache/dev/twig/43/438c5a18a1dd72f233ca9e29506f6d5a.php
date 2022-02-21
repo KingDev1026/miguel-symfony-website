@@ -90,26 +90,26 @@ class __TwigTemplate_9f24bff4f448e0d2c7c5799198a748ad extends Template
         // line 7
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/home/vendor/bootstrap/css/bootstrap.min.css"), "html", null, true);
         echo "\" rel=\"stylesheet\">
-<form class=\"container\" action=\"";
+<form class=\"container\"  method=\"post\" action=\"";
         // line 8
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("");
-        echo "\"  method=\"post\">
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("customer_create");
+        echo "\">
   <h1 class=\"mt-3\">Create Data Page.</h1>
   <div class=\"form-group mt-3\">
     <label for=\"firstName\">First Name</label>
-    <input type=\"firstName\" class=\"form-control\" id=\"firstName\" placeholder=\"Enter First Name\" >
+    <input type=\"text\" class=\"form-control\" id=\"firstName\" placeholder=\"Enter First Name\" name=\"firstName\">
   </div>
   <div class=\"form-group mt-3\">
     <label for=\"lastName\">Last Name</label>
-    <input type=\"lastName\" class=\"form-control\" id=\"lastName\" placeholder=\"Enter Last Name\" >
+    <input type=\"text\" class=\"form-control\" id=\"lastName\" placeholder=\"Enter Last Name\" name=\"lastName\">
   </div>
   <div class=\"form-group mt-3\">
     <label for=\"email\">Email address</label>
-    <input type=\"email\" class=\"form-control\" id=\"email\" aria-describedby=\"emailHelp\" placeholder=\"Enter email\" >
+    <input type=\"email\" class=\"form-control\" id=\"email\" aria-describedby=\"emailHelp\" placeholder=\"Enter email\" name=\"email\">
   </div>
   <div class=\"form-group\">
     <label for=\"phoneNumber\">PhoneNumber</label>
-    <input type=\"phoneNumber\" class=\"form-control\" id=\"phoneNumber\" placeholder=\"phoneNumber\" >
+    <input type=\"text\" class=\"form-control\" id=\"phoneNumber\" placeholder=\"phoneNumber\" name=\"phoneNumber\">
   </div>
   
   <button type=\"submit\" class=\"btn btn-primary my-3\">Create</button>
@@ -147,23 +147,23 @@ class __TwigTemplate_9f24bff4f448e0d2c7c5799198a748ad extends Template
 {% block body %}
 
 <link href=\"{{asset('assets/home/vendor/bootstrap/css/bootstrap.min.css')}}\" rel=\"stylesheet\">
-<form class=\"container\" action=\"{{path('')}}\"  method=\"post\">
+<form class=\"container\"  method=\"post\" action=\"{{path('customer_create')}}\">
   <h1 class=\"mt-3\">Create Data Page.</h1>
   <div class=\"form-group mt-3\">
     <label for=\"firstName\">First Name</label>
-    <input type=\"firstName\" class=\"form-control\" id=\"firstName\" placeholder=\"Enter First Name\" >
+    <input type=\"text\" class=\"form-control\" id=\"firstName\" placeholder=\"Enter First Name\" name=\"firstName\">
   </div>
   <div class=\"form-group mt-3\">
     <label for=\"lastName\">Last Name</label>
-    <input type=\"lastName\" class=\"form-control\" id=\"lastName\" placeholder=\"Enter Last Name\" >
+    <input type=\"text\" class=\"form-control\" id=\"lastName\" placeholder=\"Enter Last Name\" name=\"lastName\">
   </div>
   <div class=\"form-group mt-3\">
     <label for=\"email\">Email address</label>
-    <input type=\"email\" class=\"form-control\" id=\"email\" aria-describedby=\"emailHelp\" placeholder=\"Enter email\" >
+    <input type=\"email\" class=\"form-control\" id=\"email\" aria-describedby=\"emailHelp\" placeholder=\"Enter email\" name=\"email\">
   </div>
   <div class=\"form-group\">
     <label for=\"phoneNumber\">PhoneNumber</label>
-    <input type=\"phoneNumber\" class=\"form-control\" id=\"phoneNumber\" placeholder=\"phoneNumber\" >
+    <input type=\"text\" class=\"form-control\" id=\"phoneNumber\" placeholder=\"phoneNumber\" name=\"phoneNumber\">
   </div>
   
   <button type=\"submit\" class=\"btn btn-primary my-3\">Create</button>

@@ -16,7 +16,7 @@ return [
         '/customer' => [[['_route' => 'customer', '_controller' => 'App\\Controller\\CustomerController::index'], null, null, null, false, false, null]],
         '/' => [[['_route' => 'home', '_controller' => 'App\\Controller\\HomeController::index'], null, null, null, false, false, null]],
         '/customer/showCreate' => [[['_route' => 'customer_create_view', '_controller' => 'App\\Controller\\CustomerController::showCreate'], null, null, null, false, false, null]],
-        '/customer/create' => [[['_route' => 'customer_create', '_controller' => 'App\\Controller\\CustomerController::create'], null, null, null, false, false, null]],
+        '/customer/create' => [[['_route' => 'customer_create', '_controller' => 'App\\Controller\\CustomerController::createProduct'], null, null, null, false, false, null]],
     ],
     [ // $regexpList
         0 => '{^(?'
@@ -38,6 +38,7 @@ return [
                 .'|/customer/(?'
                     .'|show/([^/]++)(*:195)'
                     .'|update/([^/]++)(*:218)'
+                    .'|delete/([^/]++)(*:241)'
                 .')'
             .')/?$}sDu',
     ],
@@ -50,8 +51,9 @@ return [
         149 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
         195 => [[['_route' => 'customer_show', '_controller' => 'App\\Controller\\CustomerController::show'], ['id'], null, null, false, true, null]],
-        218 => [
-            [['_route' => 'customer_update', '_controller' => 'App\\Controller\\CustomerController::update'], ['id'], null, null, false, true, null],
+        218 => [[['_route' => 'customer_update', '_controller' => 'App\\Controller\\CustomerController::update_customer'], ['id'], null, null, false, true, null]],
+        241 => [
+            [['_route' => 'customer_delete', '_controller' => 'App\\Controller\\CustomerController::delete_customer'], ['id'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
     ],

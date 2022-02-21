@@ -10,12 +10,15 @@ customer_show:
     controller: App\Controller\CustomerController::show
 customer_update:
     path: /customer/update/{id}
-    controller: App\Controller\CustomerController::update
+    controller: App\Controller\CustomerController::update_customer
 customer_create_view:
     path: /customer/showCreate
     controller: App\Controller\CustomerController::showCreate
 customer_create:
     path: /customer/create
-    controller: App\Controller\CustomerController::create
+    controller: App\Controller\CustomerController::createProduct
+customer_delete:
+    path: /customer/delete/{id}
+    controller: App\Controller\CustomerController::delete_customer
 
 

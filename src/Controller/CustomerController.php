@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Customer;
@@ -43,37 +44,36 @@ class CustomerController extends AbstractController
     {
         $entityManager = $doctrine->getManager();
         $customer = new Customer();
-        $customer->setFirstName($requests->firstName);
-        $customer->setLastName($requests->lastName);
-        $customer->setEmail($requests->email);
-        $customer->setPhoneNumber($requests->phoneNumber);
+        $customer->setFirstName($requests->get('firstName'));
+        $customer->setLastName($requests->get('lastName'));
+        $customer->setEmail($requests->get('email'));
+        $customer->setPhoneNumber($requests->get('phoneNumber'));
         $entityManager->persist($customer);
         $entityManager->flush();
-        return new Response('Saved new product with id '.$customer->getId());
+        return $this->render('customer/create.html.twig',array(
+            'id'=>$customer->getId()
+        ));
     }
 
-
-    public function update(ManagerRegistry $doctrine, Request $request, int $id): Response
+    public function update_customer(ManagerRegistry $doctrine, Request $requests, int $id): Response
     {
         $entityManager = $doctrine->getManager();
-        $customer = $entityManager->getRepository(Customer::class)->find($id);
-
-        if (!$customer) {
-            throw $this->createNotFoundException(
-                'No customer found for id '.$id
-            );
-        }
-
-        $customer->setFirstName($entityManager->getFirstName());
-        // $customer->setLastName("1231");
-        // $customer->setLastName($entityManager->lastName);
-        // $customer->setEmail($entityManager->email);
-        // $customer->setPhoneNumber($entityManager->phoneNumber);
+        $customer = $doctrine->getRepository(Customer::class)->find($id);
+        $customer->setFirstName($requests->get('firstName'));
+        $customer->setLastName($requests->get('lastName'));
+        $customer->setEmail($requests->get('email'));
+        $customer->setPhoneNumber($requests->get('phoneNumber'));
+        $entityManager->persist($customer);
         $entityManager->flush();
+        return $this->redirectToRoute('customer');
+    }
 
-        return $this->redirectToRoute('customer_show', [
-            'id' => $customer->getId(), 
-            'customer' => $entityManager
-        ]);
+    public function delete_customer(ManagerRegistry $doctrine, int $id): Response
+    {
+        $entityManager = $doctrine->getManager();
+        $customer = $doctrine->getRepository(Customer::class)->find($id);
+        $entityManager->remove($customer);
+        $entityManager->flush();
+        return $this->redirectToRoute('customer');
     }
 }
