@@ -90,8 +90,11 @@ class __TwigTemplate_9f24bff4f448e0d2c7c5799198a748ad extends Template
         // line 7
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/home/vendor/bootstrap/css/bootstrap.min.css"), "html", null, true);
         echo "\" rel=\"stylesheet\">
-<form class=\"container\"  method=\"post\">
-  <h1 class=\"mt-3\">Edit Data Page.</h1>
+<form class=\"container\" action=\"";
+        // line 8
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("");
+        echo "\"  method=\"post\">
+  <h1 class=\"mt-3\">Create Data Page.</h1>
   <div class=\"form-group mt-3\">
     <label for=\"firstName\">First Name</label>
     <input type=\"firstName\" class=\"form-control\" id=\"firstName\" placeholder=\"Enter First Name\" >
@@ -132,7 +135,7 @@ class __TwigTemplate_9f24bff4f448e0d2c7c5799198a748ad extends Template
 
     public function getDebugInfo()
     {
-        return array (  91 => 7,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  95 => 8,  91 => 7,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -144,8 +147,8 @@ class __TwigTemplate_9f24bff4f448e0d2c7c5799198a748ad extends Template
 {% block body %}
 
 <link href=\"{{asset('assets/home/vendor/bootstrap/css/bootstrap.min.css')}}\" rel=\"stylesheet\">
-<form class=\"container\"  method=\"post\">
-  <h1 class=\"mt-3\">Edit Data Page.</h1>
+<form class=\"container\" action=\"{{path('')}}\"  method=\"post\">
+  <h1 class=\"mt-3\">Create Data Page.</h1>
   <div class=\"form-group mt-3\">
     <label for=\"firstName\">First Name</label>
     <input type=\"firstName\" class=\"form-control\" id=\"firstName\" placeholder=\"Enter First Name\" >

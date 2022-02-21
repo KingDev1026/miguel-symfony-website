@@ -710,3 +710,10 @@ ebf59e,::1,GET,http://localhost:8000/customer/showCreate,1645435008,,200
 abe36c,::1,GET,http://localhost:8000/customer/showCreate,1645435264,,200
 5997d5,::1,POST,http://localhost:8000/customer/showCreate,1645435275,,200
 2dddf9,::1,POST,http://localhost:8000/customer/showCreate,1645435417,,200
+d8e0c9,::1,GET,http://localhost:8000/,1645442120,,200
+478177,::1,GET,http://localhost:8000/,1645442122,,200
+7f9477,::1,GET,http://localhost:8000/customer,1645442125,,200
+df4757,::1,GET,http://localhost:8000/table/css/style.css,1645442126,a82ffe,404
+a82ffe,::1,GET,http://localhost:8000/table/css/style.css,1645442126,,404
+f7c689,::1,GET,http://localhost:8000/customer/showCreate,1645442129,a21fbc,500
+a21fbc,::1,GET,http://localhost:8000/customer/showCreate,1645442129,,500
