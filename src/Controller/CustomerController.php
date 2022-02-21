@@ -22,6 +22,7 @@ class CustomerController extends AbstractController
     }    
     public function show(ManagerRegistry $doctrine, int $id): Response
     {
+
         $customer = $doctrine->getRepository(Customer::class)->find($id);
         if (!$customer) {
             throw $this->createNotFoundException(
@@ -33,7 +34,26 @@ class CustomerController extends AbstractController
             'customer' => $customer,
         ]);
     }
-    public function update(ManagerRegistry $doctrine, int $id): Response
+    public function showCreate(ManagerRegistry $doctrine):Response
+    {
+        return $this->render('customer/create.html.twig', [
+            'controller_name' => 'CustommerController']);
+    }
+    public function createProduct(ManagerRegistry $doctrine, Request $requests): Response
+    {
+        $entityManager = $doctrine->getManager();
+        $customer = new Customer();
+        $customer->setFirstName($requests->firstName);
+        $customer->setLastName($requests->lastName);
+        $customer->setEmail($requests->email);
+        $customer->setPhoneNumber($requests->phoneNumber);
+        $entityManager->persist($customer);
+        $entityManager->flush();
+        return new Response('Saved new product with id '.$customer->getId());
+    }
+
+
+    public function update(ManagerRegistry $doctrine, Request $request, int $id): Response
     {
         $entityManager = $doctrine->getManager();
         $customer = $entityManager->getRepository(Customer::class)->find($id);
@@ -43,6 +63,7 @@ class CustomerController extends AbstractController
                 'No customer found for id '.$id
             );
         }
+
         $customer->setFirstName($entityManager->getFirstName());
         // $customer->setLastName("1231");
         // $customer->setLastName($entityManager->lastName);

@@ -97,6 +97,10 @@ class __TwigTemplate_b34dca3e4fac3acd4202d28f117da328 extends Template
 <section class=\"ftco-section\">
         <div class=\"container\">
             <h1>This is Customer page.</h1>
+            <button type=\"button\" class=\"btn btn-success mb-3\"><a href=\"";
+        // line 15
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("customer_create_view");
+        echo "\">Create</a></button>
             <div class=\"row\">
                 <div class=\"col-md-12\">
                     <div class=\"table-wrap\">
@@ -114,41 +118,41 @@ class __TwigTemplate_b34dca3e4fac3acd4202d28f117da328 extends Template
                           </thead>
                           <tbody>
                             ";
-        // line 31
-        $context["myVal"] = 0;
         // line 32
+        $context["myVal"] = 0;
+        // line 33
         echo "                            ";
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["customers"]) || array_key_exists("customers", $context) ? $context["customers"] : (function () { throw new RuntimeError('Variable "customers" does not exist.', 32, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["customers"]) || array_key_exists("customers", $context) ? $context["customers"] : (function () { throw new RuntimeError('Variable "customers" does not exist.', 33, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["customer"]) {
-            // line 33
+            // line 34
             echo "                                <tr>
                                     ";
-            // line 34
-            $context["myVal"] = ((isset($context["myVal"]) || array_key_exists("myVal", $context) ? $context["myVal"] : (function () { throw new RuntimeError('Variable "myVal" does not exist.', 34, $this->source); })()) + 1);
             // line 35
-            echo "                                    <td>";
-            echo twig_escape_filter($this->env, (isset($context["myVal"]) || array_key_exists("myVal", $context) ? $context["myVal"] : (function () { throw new RuntimeError('Variable "myVal" does not exist.', 35, $this->source); })()), "html", null, true);
-            echo "</td>
-                                    <td>";
+            $context["myVal"] = ((isset($context["myVal"]) || array_key_exists("myVal", $context) ? $context["myVal"] : (function () { throw new RuntimeError('Variable "myVal" does not exist.', 35, $this->source); })()) + 1);
             // line 36
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["customer"], "firstName", [], "any", false, false, false, 36), "html", null, true);
+            echo "                                    <td>";
+            echo twig_escape_filter($this->env, (isset($context["myVal"]) || array_key_exists("myVal", $context) ? $context["myVal"] : (function () { throw new RuntimeError('Variable "myVal" does not exist.', 36, $this->source); })()), "html", null, true);
             echo "</td>
                                     <td>";
             // line 37
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["customer"], "lastName", [], "any", false, false, false, 37), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["customer"], "firstName", [], "any", false, false, false, 37), "html", null, true);
             echo "</td>
                                     <td>";
             // line 38
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["customer"], "email", [], "any", false, false, false, 38), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["customer"], "lastName", [], "any", false, false, false, 38), "html", null, true);
             echo "</td>
                                     <td>";
             // line 39
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["customer"], "phoneNumber", [], "any", false, false, false, 39), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["customer"], "email", [], "any", false, false, false, 39), "html", null, true);
+            echo "</td>
+                                    <td>";
+            // line 40
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["customer"], "phoneNumber", [], "any", false, false, false, 40), "html", null, true);
             echo "</td>
                                     <td><button type=\"button\" class=\"btn btn-success\"><a href=\"";
-            // line 40
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("customer_show", ["id" => twig_get_attribute($this->env, $this->source, $context["customer"], "id", [], "any", false, false, false, 40)]), "html", null, true);
+            // line 41
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("customer_show", ["id" => twig_get_attribute($this->env, $this->source, $context["customer"], "id", [], "any", false, false, false, 41)]), "html", null, true);
             echo "\">Edit</a></button></td>
                                     <td><button type=\"button\" class=\"btn btn-danger\"><a>Delete</a></button></td>
                                 </tr>
@@ -157,7 +161,7 @@ class __TwigTemplate_b34dca3e4fac3acd4202d28f117da328 extends Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['customer'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 44
+        // line 45
         echo "                          </tbody>
                         </table>
                     </div>
@@ -186,7 +190,7 @@ class __TwigTemplate_b34dca3e4fac3acd4202d28f117da328 extends Template
 
     public function getDebugInfo()
     {
-        return array (  161 => 44,  151 => 40,  147 => 39,  143 => 38,  139 => 37,  135 => 36,  130 => 35,  128 => 34,  125 => 33,  120 => 32,  118 => 31,  94 => 10,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  165 => 45,  155 => 41,  151 => 40,  147 => 39,  143 => 38,  139 => 37,  134 => 36,  132 => 35,  129 => 34,  124 => 33,  122 => 32,  102 => 15,  94 => 10,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -205,6 +209,7 @@ class __TwigTemplate_b34dca3e4fac3acd4202d28f117da328 extends Template
 <section class=\"ftco-section\">
         <div class=\"container\">
             <h1>This is Customer page.</h1>
+            <button type=\"button\" class=\"btn btn-success mb-3\"><a href=\"{{path('customer_create_view')}}\">Create</a></button>
             <div class=\"row\">
                 <div class=\"col-md-12\">
                     <div class=\"table-wrap\">

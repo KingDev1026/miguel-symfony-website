@@ -15,6 +15,8 @@ return [
         '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
         '/customer' => [[['_route' => 'customer', '_controller' => 'App\\Controller\\CustomerController::index'], null, null, null, false, false, null]],
         '/' => [[['_route' => 'home', '_controller' => 'App\\Controller\\HomeController::index'], null, null, null, false, false, null]],
+        '/customer/showCreate' => [[['_route' => 'customer_create_view', '_controller' => 'App\\Controller\\CustomerController::showCreate'], null, null, null, false, false, null]],
+        '/customer/create' => [[['_route' => 'customer_create', '_controller' => 'App\\Controller\\CustomerController::create'], null, null, null, false, false, null]],
     ],
     [ // $regexpList
         0 => '{^(?'

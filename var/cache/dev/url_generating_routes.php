@@ -19,4 +19,6 @@ return [
     'home' => [[], ['_controller' => 'App\\Controller\\HomeController::index'], [], [['text', '/']], [], [], []],
     'customer_show' => [['id'], ['_controller' => 'App\\Controller\\CustomerController::show'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/customer/show']], [], [], []],
     'customer_update' => [['id'], ['_controller' => 'App\\Controller\\CustomerController::update'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/customer/update']], [], [], []],
+    'customer_create_view' => [[], ['_controller' => 'App\\Controller\\CustomerController::showCreate'], [], [['text', '/customer/showCreate']], [], [], []],
+    'customer_create' => [[], ['_controller' => 'App\\Controller\\CustomerController::create'], [], [['text', '/customer/create']], [], [], []],
 ];

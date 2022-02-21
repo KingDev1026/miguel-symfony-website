@@ -11,6 +11,11 @@ customer_show:
 customer_update:
     path: /customer/update/{id}
     controller: App\Controller\CustomerController::update
-
+customer_create_view:
+    path: /customer/showCreate
+    controller: App\Controller\CustomerController::showCreate
+customer_create:
+    path: /customer/create
+    controller: App\Controller\CustomerController::create
 
 
