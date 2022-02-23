@@ -69,7 +69,7 @@ class CustomerController extends AbstractController
                         'customer' => $customer,
                     ]);
         }
-        
+        $entityManager = $doctrine->getManager();
         $customer->setFirstName($requests->get('firstName'));
         $customer->setLastName($requests->get('lastName'));
         $customer->setEmail($requests->get('email'));

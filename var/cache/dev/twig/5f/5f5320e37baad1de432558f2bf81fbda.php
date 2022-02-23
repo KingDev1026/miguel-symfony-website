@@ -97,10 +97,10 @@ class __TwigTemplate_b34dca3e4fac3acd4202d28f117da328 extends Template
 <section class=\"ftco-section\">
         <div class=\"container\">
             <h1>This is Customer page.</h1>
-            <button type=\"button\" class=\"btn btn-success mb-3\"><a href=\"";
+            <a href=\"";
         // line 15
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("customer_create_view");
-        echo "\">Create</a></button>
+        echo "\"><button type=\"button\" class=\"btn btn-success mb-3\">Create</button></a>
             <div class=\"row\">
                 <div class=\"col-md-12\">
                     <div class=\"table-wrap\">
@@ -212,7 +212,7 @@ class __TwigTemplate_b34dca3e4fac3acd4202d28f117da328 extends Template
 <section class=\"ftco-section\">
         <div class=\"container\">
             <h1>This is Customer page.</h1>
-            <button type=\"button\" class=\"btn btn-success mb-3\"><a href=\"{{path('customer_create_view')}}\">Create</a></button>
+            <a href=\"{{path('customer_create_view')}}\"><button type=\"button\" class=\"btn btn-success mb-3\">Create</button></a>
             <div class=\"row\">
                 <div class=\"col-md-12\">
                     <div class=\"table-wrap\">
