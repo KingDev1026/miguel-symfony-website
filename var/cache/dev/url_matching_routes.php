@@ -17,6 +17,9 @@ return [
         '/' => [[['_route' => 'home', '_controller' => 'App\\Controller\\HomeController::index'], null, null, null, false, false, null]],
         '/customer/showCreate' => [[['_route' => 'customer_create_view', '_controller' => 'App\\Controller\\CustomerController::showCreate'], null, null, null, false, false, null]],
         '/customer/create' => [[['_route' => 'customer_create', '_controller' => 'App\\Controller\\CustomerController::createProduct'], null, null, null, false, false, null]],
+        '/customer/upload_file' => [[['_route' => 'customer_upload_file', '_controller' => 'App\\Controller\\CustomerController::upload_file'], null, null, null, false, false, null]],
+        '/customer/customer_update_byemail' => [[['_route' => 'customer_update_byemail', '_controller' => 'App\\Controller\\CustomerController::updateByEmail'], null, null, null, true, false, null]],
+        '/customer/customer_create_byemail' => [[['_route' => 'customer_create_byemail', '_controller' => 'App\\Controller\\CustomerController::createByEmail'], null, null, null, false, false, null]],
     ],
     [ // $regexpList
         0 => '{^(?'

@@ -12,11 +12,20 @@
 <section class="ftco-section">
         <div class="container">
             <h1>This is Customer page.</h1>
-            <a href="{{path('customer_create_view')}}"><button type="button" class="btn btn-success mb-3">Create</button></a>
+            <div class="row">
+                <a href="{{path('customer_create_view')}}" class="col-md-2"><button type="button" class="btn btn-success mb-3">Create</button></a>
+                <div class="col-md-10 row">
+                    <div class="col-md-10">
+                        <input class="form-control" type="file" accept=".xls, .xlsx" id="excelFile" name="excelFile" multiple enctype="multipart/form-data" />
+                    </div>
+                    <button type="submit" class="btn btn-info mb-3 col-md-2 upload-btn">Upload</button>
+                </div>
+            </div>
+            <div id="ExcelTable"></div>
             <div class="row">
                 <div class="col-md-12">
                     <div class="table-wrap">
-                        <table class="table table-bordered table-dark table-hover">
+                        <table class="table table-bordered table-dark table-hover main-table">
                           <thead>
                             <tr>
                               <th>No</th>
@@ -39,7 +48,7 @@
                                     <td>{{customer.email}}</td>
                                     <td>{{customer.phoneNumber}}</td>
                                     <td><a href="{{path('customer_show', {'id': customer.id })}}"><button type="button" class="btn btn-success">Edit</button></a></td>
-                                    <td><a href="{{path('customer_delete', {'id': customer.id })}}"><button type="button" class="btn btn-danger">Delete</button></a></td>
+                                    <td><a href="{{path('customer_delete', {'id': customer.id })}}"><button type="button" class="btn btn-danger delete-btn" >Delete</button></a></td>
                                 </tr>
                             {% endfor %}
                           </tbody>
@@ -49,4 +58,105 @@
             </div>
         </div>
     </section>
+    <script src="{{asset('assets/jQuery-v3.5.1.js')}}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/jszip.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/xlsx.js"></script>
+    <script>
+        $(".upload-btn").on("click", function(e){
+            var fileUpload = document.getElementById("excelFile");            
+            var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.xls|.xlsx)$/;
+            if (regex.test(fileUpload.value.toLowerCase())) {
+                if (typeof (FileReader) != "undefined") {
+                    var reader = new FileReader();
+
+                    //For Browsers other than IE.
+                    if (reader.readAsBinaryString) {
+                        reader.onload = function (e) {
+                            GetTableFromExcel(e.target.result);
+                        };
+                        reader.readAsBinaryString(fileUpload.files[0]);
+                    } else {
+                        //For IE Browser.
+                        reader.onload = function (e) {
+                            var data = "";
+                            var bytes = new Uint8Array(e.target.result);
+                            for (var i = 0; i < bytes.byteLength; i++) {
+                                data += String.fromCharCode(bytes[i]);
+                            }
+                            GetTableFromExcel(data);
+                        };
+                        reader.readAsArrayBuffer(fileUpload.files[0]);
+                    }
+                } else {
+                    alert("This browser does not support HTML5.");
+                }
+            } else {
+                alert("Please upload a valid Excel file.");
+            }
+        });
+        function GetTableFromExcel(data) {
+            //Read the Excel File data in binary
+            var workbook = XLSX.read(data, {
+                type: 'binary'
+            });
+     
+            //get the name of First Sheet.
+            var Sheet = workbook.SheetNames[0];
+            //Read all rows from First Sheet into an JSON array.
+            var excelRows = XLSX.utils.sheet_to_row_object_array(workbook.Sheets[Sheet]);
+            
+            //Add the data rows from Excel file.
+            for (var i = 0; i < excelRows.length; i++) {
+                var existFlag = false;
+                var firstName = excelRows[i].firstName;
+                var lastName = excelRows[i].lastName;
+                var email = excelRows[i].email;
+                var phoneNumber = excelRows[i].phoneNumber;
+                $(".main-table tr:gt(0)").each(function () {
+                    var this_row = $(this);
+                    var cur_firstName = $.trim(this_row.find('td:eq(1)').html());
+                    var cur_lastName = $.trim(this_row.find('td:eq(2)').html());
+                    var cur_phoneNumber = $.trim(this_row.find('td:eq(4)').html());
+                    var cur_email = $.trim(this_row.find('td:eq(3)').html());//td:eq(0) means first td of this row
+                    if(cur_email == email){
+                        existFlag = true;
+                        if(firstName == cur_firstName && lastName == cur_lastName && phoneNumber == cur_phoneNumber)
+                            return false;
+                        $.ajax({
+                            url:'{{ (path('customer_update_byemail')) }}',
+                            type: "POST",
+                            data: {
+                                "firstName": firstName,
+                                "lastName": lastName,
+                                "email": email,
+                                "phoneNumber": phoneNumber
+                            },
+                            async: true,
+                            success: function (data)
+                            {
+                            }
+                        });
+                        
+                    }
+                });
+                if(existFlag == false){
+                    $.ajax({
+                        url:'{{ (path('customer_create_byemail')) }}',
+                        type: "POST",
+                        data: {
+                            "firstName": firstName,
+                            "lastName": lastName,
+                            "email": email,
+                            "phoneNumber": phoneNumber
+                        },
+                        async: true,
+                        success: function (data)
+                        {
+                        }
+                    });
+                }
+            }
+            location.reload();
+        }
+    </script>
 {% endblock %}

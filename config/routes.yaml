@@ -20,5 +20,14 @@ customer_create:
 customer_delete:
     path: /customer/delete/{id}
     controller: App\Controller\CustomerController::delete_customer
+customer_upload_file:
+    path: /customer/upload_file
+    controller: App\Controller\CustomerController::upload_file
+customer_update_byemail:
+    path: /customer/customer_update_byemail/
+    controller: App\Controller\CustomerController::updateByEmail
+customer_create_byemail:
+    path: /customer/customer_create_byemail
+    controller: App\Controller\CustomerController::createByEmail
 
 

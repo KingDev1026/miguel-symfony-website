@@ -22,4 +22,7 @@ return [
     'customer_create_view' => [[], ['_controller' => 'App\\Controller\\CustomerController::showCreate'], [], [['text', '/customer/showCreate']], [], [], []],
     'customer_create' => [[], ['_controller' => 'App\\Controller\\CustomerController::createProduct'], [], [['text', '/customer/create']], [], [], []],
     'customer_delete' => [['id'], ['_controller' => 'App\\Controller\\CustomerController::delete_customer'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/customer/delete']], [], [], []],
+    'customer_upload_file' => [[], ['_controller' => 'App\\Controller\\CustomerController::upload_file'], [], [['text', '/customer/upload_file']], [], [], []],
+    'customer_update_byemail' => [[], ['_controller' => 'App\\Controller\\CustomerController::updateByEmail'], [], [['text', '/customer/customer_update_byemail/']], [], [], []],
+    'customer_create_byemail' => [[], ['_controller' => 'App\\Controller\\CustomerController::createByEmail'], [], [['text', '/customer/customer_create_byemail']], [], [], []],
 ];

@@ -9,6 +9,9 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Customer;
 use App\Repository\CustomerRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use App\Service\FileUploader;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class CustomerController extends AbstractController
 {
@@ -57,7 +60,22 @@ class CustomerController extends AbstractController
         $entityManager->flush();
         return $this->redirectToRoute('customer');
     }
-
+    public function createByEmail(ManagerRegistry $doctrine, Request $requests): Response
+    {
+        $user = $doctrine->getRepository(Customer::class)->findOneBy(array('email' => $requests->get('email')));
+        if($user){
+            return new Response('falid');
+        }
+        $entityManager = $doctrine->getManager();
+        $customer = new Customer();
+        $customer->setFirstName($requests->get('firstName'));
+        $customer->setLastName($requests->get('lastName'));
+        $customer->setEmail($requests->get('email'));
+        $customer->setPhoneNumber($requests->get('phoneNumber'));
+        $entityManager->persist($customer);
+        $entityManager->flush();
+        return new Response('success');
+    }
     public function update_customer(ManagerRegistry $doctrine, Request $requests, int $id): Response
     {
         $user = $doctrine->getRepository(Customer::class)->findOneBy(array('email' => $requests->get('email')));
@@ -78,7 +96,18 @@ class CustomerController extends AbstractController
         $entityManager->flush();
         return $this->redirectToRoute('customer');
     }
-
+    public function updateByEmail(ManagerRegistry $doctrine, Request $requests): Response
+    {
+        $customer = $doctrine->getRepository(Customer::class)->findOneBy(array('email' => $requests->get('email')));
+        $entityManager = $doctrine->getManager();
+        $customer->setFirstName($requests->get('firstName'));
+        $customer->setLastName($requests->get('lastName'));
+        $customer->setEmail($requests->get('email'));
+        $customer->setPhoneNumber($requests->get('phoneNumber'));
+        $entityManager->persist($customer);
+        $entityManager->flush();
+        return new Response('success');
+    }
     public function delete_customer(ManagerRegistry $doctrine, int $id): Response
     {
         $entityManager = $doctrine->getManager();
@@ -87,4 +116,15 @@ class CustomerController extends AbstractController
         $entityManager->flush();
         return $this->redirectToRoute('customer');
     }
+    public function upload_file(ManagerRegistry $doctrine, Request $requests):Response
+    {
+        $brochureFile = $requests->get('excelFile');
+
+        if ($brochureFile) {
+            $originalFilename = pathinfo($brochureFile->getClientOriginalName(), PATHINFO_FILENAME);
+            dd($originalFilename);
+        }
+        
+    }
+
 }

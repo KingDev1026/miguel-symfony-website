@@ -97,14 +97,23 @@ class __TwigTemplate_b34dca3e4fac3acd4202d28f117da328 extends Template
 <section class=\"ftco-section\">
         <div class=\"container\">
             <h1>This is Customer page.</h1>
-            <a href=\"";
-        // line 15
+            <div class=\"row\">
+                <a href=\"";
+        // line 16
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("customer_create_view");
-        echo "\"><button type=\"button\" class=\"btn btn-success mb-3\">Create</button></a>
+        echo "\" class=\"col-md-2\"><button type=\"button\" class=\"btn btn-success mb-3\">Create</button></a>
+                <div class=\"col-md-10 row\">
+                    <div class=\"col-md-10\">
+                        <input class=\"form-control\" type=\"file\" accept=\".xls, .xlsx\" id=\"excelFile\" name=\"excelFile\" multiple enctype=\"multipart/form-data\" />
+                    </div>
+                    <button type=\"submit\" class=\"btn btn-info mb-3 col-md-2 upload-btn\">Upload</button>
+                </div>
+            </div>
+            <div id=\"ExcelTable\"></div>
             <div class=\"row\">
                 <div class=\"col-md-12\">
                     <div class=\"table-wrap\">
-                        <table class=\"table table-bordered table-dark table-hover\">
+                        <table class=\"table table-bordered table-dark table-hover main-table\">
                           <thead>
                             <tr>
                               <th>No</th>
@@ -118,53 +127,53 @@ class __TwigTemplate_b34dca3e4fac3acd4202d28f117da328 extends Template
                           </thead>
                           <tbody>
                             ";
-        // line 32
+        // line 41
         $context["myVal"] = 0;
-        // line 33
+        // line 42
         echo "                            ";
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["customers"]) || array_key_exists("customers", $context) ? $context["customers"] : (function () { throw new RuntimeError('Variable "customers" does not exist.', 33, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["customers"]) || array_key_exists("customers", $context) ? $context["customers"] : (function () { throw new RuntimeError('Variable "customers" does not exist.', 42, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["customer"]) {
-            // line 34
+            // line 43
             echo "                                <tr>
                                     ";
-            // line 35
-            $context["myVal"] = ((isset($context["myVal"]) || array_key_exists("myVal", $context) ? $context["myVal"] : (function () { throw new RuntimeError('Variable "myVal" does not exist.', 35, $this->source); })()) + 1);
-            // line 36
+            // line 44
+            $context["myVal"] = ((isset($context["myVal"]) || array_key_exists("myVal", $context) ? $context["myVal"] : (function () { throw new RuntimeError('Variable "myVal" does not exist.', 44, $this->source); })()) + 1);
+            // line 45
             echo "                                    <td>";
-            echo twig_escape_filter($this->env, (isset($context["myVal"]) || array_key_exists("myVal", $context) ? $context["myVal"] : (function () { throw new RuntimeError('Variable "myVal" does not exist.', 36, $this->source); })()), "html", null, true);
+            echo twig_escape_filter($this->env, (isset($context["myVal"]) || array_key_exists("myVal", $context) ? $context["myVal"] : (function () { throw new RuntimeError('Variable "myVal" does not exist.', 45, $this->source); })()), "html", null, true);
             echo "</td>
                                     <td>";
-            // line 37
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["customer"], "firstName", [], "any", false, false, false, 37), "html", null, true);
+            // line 46
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["customer"], "firstName", [], "any", false, false, false, 46), "html", null, true);
             echo "</td>
                                     <td>";
-            // line 38
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["customer"], "lastName", [], "any", false, false, false, 38), "html", null, true);
+            // line 47
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["customer"], "lastName", [], "any", false, false, false, 47), "html", null, true);
             echo "</td>
                                     <td>";
-            // line 39
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["customer"], "email", [], "any", false, false, false, 39), "html", null, true);
+            // line 48
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["customer"], "email", [], "any", false, false, false, 48), "html", null, true);
             echo "</td>
                                     <td>";
-            // line 40
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["customer"], "phoneNumber", [], "any", false, false, false, 40), "html", null, true);
+            // line 49
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["customer"], "phoneNumber", [], "any", false, false, false, 49), "html", null, true);
             echo "</td>
                                     <td><a href=\"";
-            // line 41
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("customer_show", ["id" => twig_get_attribute($this->env, $this->source, $context["customer"], "id", [], "any", false, false, false, 41)]), "html", null, true);
+            // line 50
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("customer_show", ["id" => twig_get_attribute($this->env, $this->source, $context["customer"], "id", [], "any", false, false, false, 50)]), "html", null, true);
             echo "\"><button type=\"button\" class=\"btn btn-success\">Edit</button></a></td>
                                     <td><a href=\"";
-            // line 42
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("customer_delete", ["id" => twig_get_attribute($this->env, $this->source, $context["customer"], "id", [], "any", false, false, false, 42)]), "html", null, true);
-            echo "\"><button type=\"button\" class=\"btn btn-danger\">Delete</button></a></td>
+            // line 51
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("customer_delete", ["id" => twig_get_attribute($this->env, $this->source, $context["customer"], "id", [], "any", false, false, false, 51)]), "html", null, true);
+            echo "\"><button type=\"button\" class=\"btn btn-danger delete-btn\" >Delete</button></a></td>
                                 </tr>
                             ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['customer'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 45
+        // line 54
         echo "                          </tbody>
                         </table>
                     </div>
@@ -172,6 +181,116 @@ class __TwigTemplate_b34dca3e4fac3acd4202d28f117da328 extends Template
             </div>
         </div>
     </section>
+    <script src=\"";
+        // line 61
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/jQuery-v3.5.1.js"), "html", null, true);
+        echo "\"></script>
+    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/jszip.js\"></script>
+    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/xlsx.js\"></script>
+    <script>
+        \$(\".upload-btn\").on(\"click\", function(e){
+            var fileUpload = document.getElementById(\"excelFile\");            
+            var regex = /^([a-zA-Z0-9\\s_\\\\.\\-:])+(.xls|.xlsx)\$/;
+            if (regex.test(fileUpload.value.toLowerCase())) {
+                if (typeof (FileReader) != \"undefined\") {
+                    var reader = new FileReader();
+
+                    //For Browsers other than IE.
+                    if (reader.readAsBinaryString) {
+                        reader.onload = function (e) {
+                            GetTableFromExcel(e.target.result);
+                        };
+                        reader.readAsBinaryString(fileUpload.files[0]);
+                    } else {
+                        //For IE Browser.
+                        reader.onload = function (e) {
+                            var data = \"\";
+                            var bytes = new Uint8Array(e.target.result);
+                            for (var i = 0; i < bytes.byteLength; i++) {
+                                data += String.fromCharCode(bytes[i]);
+                            }
+                            GetTableFromExcel(data);
+                        };
+                        reader.readAsArrayBuffer(fileUpload.files[0]);
+                    }
+                } else {
+                    alert(\"This browser does not support HTML5.\");
+                }
+            } else {
+                alert(\"Please upload a valid Excel file.\");
+            }
+        });
+        function GetTableFromExcel(data) {
+            //Read the Excel File data in binary
+            var workbook = XLSX.read(data, {
+                type: 'binary'
+            });
+     
+            //get the name of First Sheet.
+            var Sheet = workbook.SheetNames[0];
+            //Read all rows from First Sheet into an JSON array.
+            var excelRows = XLSX.utils.sheet_to_row_object_array(workbook.Sheets[Sheet]);
+            
+            //Add the data rows from Excel file.
+            for (var i = 0; i < excelRows.length; i++) {
+                var existFlag = false;
+                var firstName = excelRows[i].firstName;
+                var lastName = excelRows[i].lastName;
+                var email = excelRows[i].email;
+                var phoneNumber = excelRows[i].phoneNumber;
+                \$(\".main-table tr:gt(0)\").each(function () {
+                    var this_row = \$(this);
+                    var cur_firstName = \$.trim(this_row.find('td:eq(1)').html());
+                    var cur_lastName = \$.trim(this_row.find('td:eq(2)').html());
+                    var cur_phoneNumber = \$.trim(this_row.find('td:eq(4)').html());
+                    var cur_email = \$.trim(this_row.find('td:eq(3)').html());//td:eq(0) means first td of this row
+                    if(cur_email == email){
+                        existFlag = true;
+                        if(firstName == cur_firstName && lastName == cur_lastName && phoneNumber == cur_phoneNumber)
+                            return false;
+                        \$.ajax({
+                            url:'";
+        // line 126
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("customer_update_byemail");
+        echo "',
+                            type: \"POST\",
+                            data: {
+                                \"firstName\": firstName,
+                                \"lastName\": lastName,
+                                \"email\": email,
+                                \"phoneNumber\": phoneNumber
+                            },
+                            async: true,
+                            success: function (data)
+                            {
+                            }
+                        });
+                        
+                    }
+                });
+                if(existFlag == false){
+                    \$.ajax({
+                        url:'";
+        // line 144
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("customer_create_byemail");
+        echo "',
+                        type: \"POST\",
+                        data: {
+                            \"firstName\": firstName,
+                            \"lastName\": lastName,
+                            \"email\": email,
+                            \"phoneNumber\": phoneNumber
+                        },
+                        async: true,
+                        success: function (data)
+                        {
+                        }
+                    });
+                }
+            }
+            location.reload();
+        }
+    </script>
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -193,7 +312,7 @@ class __TwigTemplate_b34dca3e4fac3acd4202d28f117da328 extends Template
 
     public function getDebugInfo()
     {
-        return array (  168 => 45,  159 => 42,  155 => 41,  151 => 40,  147 => 39,  143 => 38,  139 => 37,  134 => 36,  132 => 35,  129 => 34,  124 => 33,  122 => 32,  102 => 15,  94 => 10,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  275 => 144,  254 => 126,  186 => 61,  177 => 54,  168 => 51,  164 => 50,  160 => 49,  156 => 48,  152 => 47,  148 => 46,  143 => 45,  141 => 44,  138 => 43,  133 => 42,  131 => 41,  103 => 16,  94 => 10,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -212,11 +331,20 @@ class __TwigTemplate_b34dca3e4fac3acd4202d28f117da328 extends Template
 <section class=\"ftco-section\">
         <div class=\"container\">
             <h1>This is Customer page.</h1>
-            <a href=\"{{path('customer_create_view')}}\"><button type=\"button\" class=\"btn btn-success mb-3\">Create</button></a>
+            <div class=\"row\">
+                <a href=\"{{path('customer_create_view')}}\" class=\"col-md-2\"><button type=\"button\" class=\"btn btn-success mb-3\">Create</button></a>
+                <div class=\"col-md-10 row\">
+                    <div class=\"col-md-10\">
+                        <input class=\"form-control\" type=\"file\" accept=\".xls, .xlsx\" id=\"excelFile\" name=\"excelFile\" multiple enctype=\"multipart/form-data\" />
+                    </div>
+                    <button type=\"submit\" class=\"btn btn-info mb-3 col-md-2 upload-btn\">Upload</button>
+                </div>
+            </div>
+            <div id=\"ExcelTable\"></div>
             <div class=\"row\">
                 <div class=\"col-md-12\">
                     <div class=\"table-wrap\">
-                        <table class=\"table table-bordered table-dark table-hover\">
+                        <table class=\"table table-bordered table-dark table-hover main-table\">
                           <thead>
                             <tr>
                               <th>No</th>
@@ -239,7 +367,7 @@ class __TwigTemplate_b34dca3e4fac3acd4202d28f117da328 extends Template
                                     <td>{{customer.email}}</td>
                                     <td>{{customer.phoneNumber}}</td>
                                     <td><a href=\"{{path('customer_show', {'id': customer.id })}}\"><button type=\"button\" class=\"btn btn-success\">Edit</button></a></td>
-                                    <td><a href=\"{{path('customer_delete', {'id': customer.id })}}\"><button type=\"button\" class=\"btn btn-danger\">Delete</button></a></td>
+                                    <td><a href=\"{{path('customer_delete', {'id': customer.id })}}\"><button type=\"button\" class=\"btn btn-danger delete-btn\" >Delete</button></a></td>
                                 </tr>
                             {% endfor %}
                           </tbody>
@@ -249,6 +377,107 @@ class __TwigTemplate_b34dca3e4fac3acd4202d28f117da328 extends Template
             </div>
         </div>
     </section>
+    <script src=\"{{asset('assets/jQuery-v3.5.1.js')}}\"></script>
+    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/jszip.js\"></script>
+    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/xlsx.js\"></script>
+    <script>
+        \$(\".upload-btn\").on(\"click\", function(e){
+            var fileUpload = document.getElementById(\"excelFile\");            
+            var regex = /^([a-zA-Z0-9\\s_\\\\.\\-:])+(.xls|.xlsx)\$/;
+            if (regex.test(fileUpload.value.toLowerCase())) {
+                if (typeof (FileReader) != \"undefined\") {
+                    var reader = new FileReader();
+
+                    //For Browsers other than IE.
+                    if (reader.readAsBinaryString) {
+                        reader.onload = function (e) {
+                            GetTableFromExcel(e.target.result);
+                        };
+                        reader.readAsBinaryString(fileUpload.files[0]);
+                    } else {
+                        //For IE Browser.
+                        reader.onload = function (e) {
+                            var data = \"\";
+                            var bytes = new Uint8Array(e.target.result);
+                            for (var i = 0; i < bytes.byteLength; i++) {
+                                data += String.fromCharCode(bytes[i]);
+                            }
+                            GetTableFromExcel(data);
+                        };
+                        reader.readAsArrayBuffer(fileUpload.files[0]);
+                    }
+                } else {
+                    alert(\"This browser does not support HTML5.\");
+                }
+            } else {
+                alert(\"Please upload a valid Excel file.\");
+            }
+        });
+        function GetTableFromExcel(data) {
+            //Read the Excel File data in binary
+            var workbook = XLSX.read(data, {
+                type: 'binary'
+            });
+     
+            //get the name of First Sheet.
+            var Sheet = workbook.SheetNames[0];
+            //Read all rows from First Sheet into an JSON array.
+            var excelRows = XLSX.utils.sheet_to_row_object_array(workbook.Sheets[Sheet]);
+            
+            //Add the data rows from Excel file.
+            for (var i = 0; i < excelRows.length; i++) {
+                var existFlag = false;
+                var firstName = excelRows[i].firstName;
+                var lastName = excelRows[i].lastName;
+                var email = excelRows[i].email;
+                var phoneNumber = excelRows[i].phoneNumber;
+                \$(\".main-table tr:gt(0)\").each(function () {
+                    var this_row = \$(this);
+                    var cur_firstName = \$.trim(this_row.find('td:eq(1)').html());
+                    var cur_lastName = \$.trim(this_row.find('td:eq(2)').html());
+                    var cur_phoneNumber = \$.trim(this_row.find('td:eq(4)').html());
+                    var cur_email = \$.trim(this_row.find('td:eq(3)').html());//td:eq(0) means first td of this row
+                    if(cur_email == email){
+                        existFlag = true;
+                        if(firstName == cur_firstName && lastName == cur_lastName && phoneNumber == cur_phoneNumber)
+                            return false;
+                        \$.ajax({
+                            url:'{{ (path('customer_update_byemail')) }}',
+                            type: \"POST\",
+                            data: {
+                                \"firstName\": firstName,
+                                \"lastName\": lastName,
+                                \"email\": email,
+                                \"phoneNumber\": phoneNumber
+                            },
+                            async: true,
+                            success: function (data)
+                            {
+                            }
+                        });
+                        
+                    }
+                });
+                if(existFlag == false){
+                    \$.ajax({
+                        url:'{{ (path('customer_create_byemail')) }}',
+                        type: \"POST\",
+                        data: {
+                            \"firstName\": firstName,
+                            \"lastName\": lastName,
+                            \"email\": email,
+                            \"phoneNumber\": phoneNumber
+                        },
+                        async: true,
+                        success: function (data)
+                        {
+                        }
+                    });
+                }
+            }
+            location.reload();
+        }
+    </script>
 {% endblock %}
 ", "customer/index.html.twig", "E:\\development\\symfony\\Miguel\\miguel-symfony-website\\templates\\customer\\index.html.twig");
     }
